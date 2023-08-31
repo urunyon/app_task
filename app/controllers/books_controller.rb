@@ -2,7 +2,6 @@ class BooksController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update, :destroy]
 
   def show
-    @user = User.find(params[:id])
     @books = Book.new
     @book = Book.find(params[:id])
   end
