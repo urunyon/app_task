@@ -16,6 +16,7 @@
             <% end %>
           </td>
           <td><%= link_to @book.title, @book %></td>
+          <td>コメント数： <%= @book.book_comments.count %></td>
           <td><%= @book.body %></td>
           <td><%= render "favorites/fabtn", book: @book %></td>
           <% if @book.user == current_user %>
@@ -27,6 +28,8 @@
           <% end %>
         </tr>
       </table>
+      <%= render "book_comments/index", book: @book %>
+      <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
     </div>
   </div>
 </div>
