@@ -6,10 +6,10 @@ class SearchesController < ApplicationController
     @content = params[:content]
     @method = params[:method]
     
-    if @model  == "user"#選択したモデルに応じて検索を実行
+    if @model  == "user"
       @records = User.search_for(@content, @method)
     else
-      @records = Books.search_for(@content, @method)
+      @records = Book.search_for(@content, @method)
     end
   end
 end
