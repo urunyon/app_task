@@ -4,6 +4,7 @@
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
+      <th>Tag</th>
       <th>Favorite</th>
       <th>Comment</th>
       <th>Evaluation</th>
@@ -19,6 +20,11 @@
         </td>
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
+        <td>
+          <% if book.tag.present? %>
+            <%=link_to book.tag,tagsearches_search_path(content:@book.tag)%>
+          <% end %>
+        </td>
         <td id="favorite_buttons_<%= book.id %>">
           <%= render "favorites/btn", book: book %>
         </td>
