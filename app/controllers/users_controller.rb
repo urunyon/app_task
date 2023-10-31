@@ -22,6 +22,10 @@ before_action :authenticate_user!, only: [:show]
       end
     end
     @books = @user.books
+    @today_book =  @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
     @book = Book.new
   end
 
